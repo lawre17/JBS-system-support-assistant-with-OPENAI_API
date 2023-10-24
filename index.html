@@ -1,9 +1,8 @@
-<!doctype html>
+<!Doctype html>
 <html>
 
 <head>
-    <title>KnowItAll</title>
-    <link rel="stylesheet" href="index.css">
+    <title>JBS support assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -23,16 +22,17 @@
                 <div class="speech speech-ai">
                     How can I help you?
                 </div>
+                
             </div>
-            <form id="form" class="chatbot-input-container">
+            <form id="form" onsubmit="return false;" class="chatbot-input-container">
                 <input name="user-input" type="text" id="user-input" required>
-                <button id="submit-btn" class="submit-btn">
+                <button onclick="GetMessages()" id="submit-btn" class="submit-btn">
                     <img src="images/send.png" class="send-btn-icon">
                 </button>
             </form>
         </section>
     </main>
-    <script type="module" src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
