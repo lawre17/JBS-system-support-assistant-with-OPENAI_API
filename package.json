@@ -1,0 +1,17 @@
+{
+  "name": "jbsapi",
+  "version": "1.0.0",
+  "description": "JBS support assistant using OPEN AI API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JBS",
+    "API",
+    "support",
+    "AI"
+  ],
+  "author": "Lawrence Njoroge",
+  "license": "ISC"
+}
