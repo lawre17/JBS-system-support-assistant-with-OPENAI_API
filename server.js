@@ -12,6 +12,7 @@ app.use(express.json())
 
 app.use(cors()) 
 
+
 const API_KEY = process.env.OPENAI_API_KEY
 
 app.post('/completions', async(req, res) => {
