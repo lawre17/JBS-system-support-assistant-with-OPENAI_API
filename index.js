@@ -28,7 +28,7 @@ async function GetMessages() {
             }
         }
 
-        const response = await fetch("/completions", options)
+        const response = await fetch("/api/completions", options)
         const data = await response.json()
         conversationStr += ` ${data.choices[0].text} \n`
         const reply = data.choices[0].text
