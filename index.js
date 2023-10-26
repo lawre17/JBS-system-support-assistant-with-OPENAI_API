@@ -33,7 +33,7 @@ async function GetMessages() {
         conversationStr += ` ${data.choices[0].text} \n`
         const reply = data.choices[0].text
         renderTypewriterText(reply)
-        console.log(conversationStr);
+        //console.log(conversationStr);
         
     } catch (error) {
         
