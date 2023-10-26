@@ -12,6 +12,10 @@ app.use(express.json())
 
 app.use(cors()) 
 
+app.get('/', (req, res) => {
+    res.sendFile('index.html');
+});
+
 
 const API_KEY = process.env.OPENAI_API_KEY
 
