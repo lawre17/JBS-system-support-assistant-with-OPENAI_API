@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.use(cors()) 
 
-const API_KEY = process.env.OPEN_AI_KEY
+const API_KEY = process.env.OPENAI_API_KEY
 
 app.post('/completions', async(req, res) => {
 
@@ -23,15 +23,19 @@ app.post('/completions', async(req, res) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: req.body.message,
+            model: "davinci:ft-bit-systems-2023-10-26-07-23-37",
+            prompt: req.body.message,
+            presence_penalty: 0,
+            frequency_penalty: 0.3,
+            temperature: 0,
+            stop:['\n','->'],
             max_tokens: 100            
         })
     }
 
     try {
 
-        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const response = await fetch('https://api.openai.com/v1/completions', options)
         const data = await response.json()
 
         res.send(data)

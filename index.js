@@ -1,10 +1,7 @@
 
 const chatbotConversation = document.getElementById('chatbot-conversation')
 
-const conversationArr = [{
-    role: 'system',
-    content: 'You are a highly knowledgeable assistant that is always happy to help.'
-}] 
+let conversationStr = ""
  
 async function GetMessages() {
    
@@ -15,10 +12,7 @@ async function GetMessages() {
         newSpeech.classList.add('speech', 'speech-human')
         chatbotConversation.appendChild(newSpeech)
         newSpeech.textContent = userinput
-        conversationArr.push({
-            role: 'user',
-            content:userinput
-        })
+        conversationStr += ` ${userinput} ->`
         document.getElementById("user-input").value = ""
         
 
@@ -27,7 +21,7 @@ async function GetMessages() {
         const options = {
             method: "POST",
             body: JSON.stringify({
-                message: conversationArr
+                message: conversationStr
             }),
             headers: {
                 "Content-type": "application/json"
@@ -36,10 +30,10 @@ async function GetMessages() {
 
         const response = await fetch("http://localhost:8000/completions", options)
         const data = await response.json()
-        conversationArr.push(data.choices[0].message)
-        const reply = data.choices[0].message.content
+        conversationStr += ` ${data.choices[0].text} \n`
+        const reply = data.choices[0].text
         renderTypewriterText(reply)
-        //console.log(message);
+        console.log(conversationStr);
         
     } catch (error) {
         
