@@ -1,5 +1,9 @@
 const PORT = 8000
 
+const path = require('path')
+
+const StaticFiles = path.join(__dirname)
+
 const express = require("express")
 
 require('dotenv').config()
@@ -12,8 +16,10 @@ app.use(express.json())
 
 app.use(cors()) 
 
+app.use(express.static(StaticFiles))
+
 app.get('/', (req, res) => {
-    res.sendFile('index.html');
+    res.sendFile(path.join(StaticFiles,'index.html'))
 });
 
 
