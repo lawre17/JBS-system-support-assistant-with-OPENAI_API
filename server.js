@@ -2,7 +2,7 @@ const PORT = 8000
 
 const path = require('path')
 
-const StaticFiles = path.join(__dirname,'public')
+const StaticFiles = path.join(__dirname)
 
 const express = require("express")
 
